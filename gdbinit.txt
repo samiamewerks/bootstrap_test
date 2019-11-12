@@ -1,0 +1,3 @@
+
+shell start C:\Users\samia\gecko_os_workspace\sdk-wgm160p\4.0.18-2139\tools\Segger\win32\JLink_V620f\JLinkGDBServerCL.exe -select USB -device EFM32GG11B820F2048 -singlerun -if swd -speed auto -noir -rtos GDBServer/RTOSPlugin_uCOSIII  -log C:/Users/samia/gecko_os_workspace/my_project/gdb_server.log 
+

@@ -1,0 +1,25 @@
+SEGGER J-Link GDB Server V6.20f LogFile
+Logging started @ 2019-10-18 18:45
+03-00000000-00-00000000-00BD: Command line: -select USB -device EFM32GG11B820F2048 -singlerun -if swd -speed auto -noir -rtos GDBServer/RTOSPlugin_uCOSIII -log C:/Users/samia/gecko_os_workspace/my_project/gdb_server.log
+03-00000000-00-00000018-0023: -----GDB Server start settings-----
+03-00000000-00-00000018-0023: GDBInit file:                  none
+03-00000000-00-00000018-0023: GDB Server Listening port:     2331
+03-00000000-00-00000018-0023: SWO raw output listening port: 2332
+03-00000000-00-00000018-0023: Terminal I/O port:             2333
+03-00000000-00-00000018-002D: Accept remote connection:      localhost only
+03-00000000-00-00000018-0021: Generate logfile:              on
+03-00000000-00-00000018-0022: Verify download:               off
+03-00000000-00-00000018-0022: Init regs on start:            off
+03-00000000-00-00000018-0022: Silent mode:                   off
+03-00000000-00-00000018-0021: Single run mode:               on
+03-00000000-00-00000018-0023: Target connection timeout:     0 ms
+03-00000000-00-00000032-0023: ------J-Link related settings------
+03-00000000-00-00000032-0022: J-Link Host interface:         USB
+03-00000000-00-00000032-0023: J-Link script:                 none
+03-00000000-00-00000032-0023: J-Link settings file:          none
+03-00000000-00-00000032-0023: ------Target related settings------
+03-00000000-00-00000032-0031: Target device:                 EFM32GG11B820F2048
+03-00000000-00-00000032-0022: Target interface:              SWD
+03-00000000-00-00000032-0023: Target interface speed:        auto
+03-00000000-00-00000033-0025: Target endian:                 little
+03-00000000-00-00000034-0017: Connecting to J-Link...

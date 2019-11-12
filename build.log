@@ -1,0 +1,21 @@
+
+C:\Users\samia\gecko_os_workspace\sdk-wgm160p\4.0.18-2139>rem @echo off 
+
+C:\Users\samia\gecko_os_workspace\sdk-wgm160p\4.0.18-2139>echo call tools\common\win32\make.exe ECLIPSE_BUILD=1 PROJECT_PARENT_DIRECTORY.bootstrap_test download run all 
+call tools\common\win32\make.exe ECLIPSE_BUILD=1 PROJECT_PARENT_DIRECTORY.bootstrap_test download run all
+
+C:\Users\samia\gecko_os_workspace\sdk-wgm160p\4.0.18-2139>call tools\common\win32\make.exe ECLIPSE_BUILD=1 PROJECT_PARENT_DIRECTORY.bootstrap_test download run all 
+Build platform:wgm160p, build:release, dms:remote
+Build output directory: /cygdrive/c/Users/samia/gecko_os_workspace/sdk-wgm160p/4.0.18-2139/output/external_bootstrap_test-wgm160p
+Building Application
+Compiling main.c
+C:/Users/samia/gecko_os_workspace/bootstrap_test/main.c: In function 'gos_app_init':
+C:/Users/samia/gecko_os_workspace/bootstrap_test/main.c:441:12: warning: unused variable 'j' [-Wunused-variable]
+     int i, j;
+            ^
+Building Plugins
+Generating Application Image
+Generating snapshot
+Downloading to device ...
+Download complete
+Started application on device
