@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="com.silabs.geckoos.toolchain.toolchain.1046386854">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.silabs.geckoos.toolchain.toolchain.1046386854" moduleId="org.eclipse.cdt.core.settings" name="Standard Build">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" cleanCommand="clean" description="" id="com.silabs.geckoos.toolchain.toolchain.1046386854" name="Standard Build" parent="com.silabs.geckoos.toolchain.configuration.default">
+					<folderInfo id="com.silabs.geckoos.toolchain.toolchain.1046386854." name="/" resourcePath="">
+						<toolChain id="com.silabs.geckoos.toolchain.toolchain.735121494" name="Gecko OS Toolchain" superClass="com.silabs.geckoos.toolchain.toolchain">
+							<targetPlatform id="com.silabs.geckoos.toolchain.targetplatform.888227950" isAbstract="false" name="Gecko OS Platform" superClass="com.silabs.geckoos.toolchain.targetplatform"/>
+							<builder command="${ProjDirPath}/make.bat" id="com.silabs.geckoos.toolchain.builder.1328820689" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gecko OS Builder" superClass="com.silabs.geckoos.toolchain.builder"/>
+							<tool id="com.silabs.geckoos.toolchain.sdk.1253126140" name="Gecko OS Build Tool" superClass="com.silabs.geckoos.toolchain.sdk">
+								<option id="com.silabs.geckoos.toolchain.sdk.general.platform.1825249236" name="Device Platform" superClass="com.silabs.geckoos.toolchain.sdk.general.platform" useByScannerDiscovery="false" value="wgm160p" valueType="string"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.general.product.1825249236" name="DMS Product Code" superClass="com.silabs.geckoos.toolchain.sdk.general.product" useByScannerDiscovery="false" value="0W558J-MY_PROJECT" valueType="string"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.general.debugEnable.1939012007" name="Enable debug build?" superClass="com.silabs.geckoos.toolchain.sdk.general.debugEnable" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.general.addWebapp.1658734" name="Add Gecko OS Webapp" superClass="com.silabs.geckoos.toolchain.sdk.general.addWebapp" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.symbols.local.1028355157" name="Project-Only Symbols" superClass="com.silabs.geckoos.toolchain.sdk.symbols.local" useByScannerDiscovery="false"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.symbols.global.2083341692" name="Global Symbols" superClass="com.silabs.geckoos.toolchain.sdk.symbols.global" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="GECKO_OS_API"/>
+								</option>
+								<option id="com.silabs.geckoos.toolchain.sdk.includes.local.612446593" name="Project Includes Paths" superClass="com.silabs.geckoos.toolchain.sdk.includes.local" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="."/>
+								</option>
+								<option id="com.silabs.geckoos.toolchain.sdk.includes.global.832242120" name="Global Includes Paths" superClass="com.silabs.geckoos.toolchain.sdk.includes.global" useByScannerDiscovery="false"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.libraries.list.595249728" name="Components" superClass="com.silabs.geckoos.toolchain.sdk.libraries.list" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="resources.gecko_os.webapp"/>
+								</option>
+								<option id="com.silabs.geckoos.toolchain.sdk.compiler.localFlags.282733903" name="Additional Project-Only Flags" superClass="com.silabs.geckoos.toolchain.sdk.compiler.localFlags" useByScannerDiscovery="false"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.compiler.globalFlags.1037520308" name="Additional Global Flags" superClass="com.silabs.geckoos.toolchain.sdk.compiler.globalFlags" useByScannerDiscovery="false"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.linker.globalFlags.752057626" name="Additional Global Flags" superClass="com.silabs.geckoos.toolchain.sdk.linker.globalFlags" useByScannerDiscovery="false"/>
+								<option id="com.silabs.geckoos.toolchain.sdk.general.autoProto.1337718708" name="Automatically generate prototypes?" superClass="com.silabs.geckoos.toolchain.sdk.general.autoProto" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<inputType id="com.silabs.geckoos.toolchain.input.1324588074" superClass="com.silabs.geckoos.toolchain.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<fileInfo id="com.silabs.geckoos.toolchain.toolchain.1046386854.81913992" name="make.bat" rcbsApplicability="disable" resourcePath="make.bat" toolsToInvoke=""/>
+					<sourceEntries>
+						<entry excluding="make.bat" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.toolchain.gnu.mingw.base.1992288415">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.toolchain.gnu.mingw.base.1992288415" moduleId="org.eclipse.cdt.core.settings" name="Default">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration buildProperties="" id="cdt.managedbuild.toolchain.gnu.mingw.base.1992288415" name="Default" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="cdt.managedbuild.toolchain.gnu.mingw.base.1992288415.1265929641" name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.base.1910840171" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.base">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.PE" id="cdt.managedbuild.target.gnu.platform.mingw.base.9398950" name="Debug Platform" osList="win32" superClass="cdt.managedbuild.target.gnu.platform.mingw.base"/>
+							<builder buildPath="${workspace_loc:/bootstrap_test}/Default" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1067267740" managedBuildOn="false" name="CDT Internal Builder.Default" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.mingw.base.1719608887" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.base">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.364595404" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.255225132" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.903982809" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.927014346" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.base.1744817315" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.base">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.253214797" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.base.152726973" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.base">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1039805261" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base.1408750050" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.809236863" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="bootstrap_test.null.702752877" name="bootstrap_test"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Standard Build">
+			<resource resourceType="PROJECT" workspacePath="/my_project"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+		<buildTargets>
+			<target name="Download Application" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${ProjDirPath}/make.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>download run</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="Download Application and Resources" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${ProjDirPath}/make.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>download_all run</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="Download Resources Only" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${ProjDirPath}/make.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>download_extended run</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="Clean Build Output" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${ProjDirPath}/make.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>clean</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="Release to DMS" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${ProjDirPath}/make.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>release PREVIEW_ONLY=1</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="Setup Device" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${ProjDirPath}/make.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>setup</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="Log into DMS" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${ProjDirPath}/make.bat</buildCommand>
+				<buildArguments/>
+				<buildTarget>login</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>true</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+		</buildTargets>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="com.silabs.geckoos.toolchain.toolchain.1046386854;com.silabs.geckoos.toolchain.toolchain.1046386854.297195009;com.silabs.geckoos.toolchain.sdk.1849411629;cdt.managedbuild.tool.gnu.c.compiler.input.1419773051">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+</cproject>
