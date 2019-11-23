@@ -30,6 +30,9 @@ typedef enum {
 
 } spicmd;
 
+extern unsigned char* mgm13_bluetooth_bin;
+#define MGM13_BLUETOOTH_BIN_LEN 149504
+
 uint8_t cmdtxbuf[CMDLEN]; /* SPI transmit command buffer */
 uint8_t cmdrxbuf[CMDLEN]; /* SPI receive command buffer */
 uint8_t pkttxbuf[PKTLEN]; /* SPI transmit packet buffer */
@@ -38,7 +41,7 @@ uint8_t pktrxbuf[PKTLEN]; /* SPI receive packet buffer */
 gos_spi_device_t spidev; /* handle to SPI device */
 
 /* test program image */
-uint8_t testprog[TPLEN]; /* area for test program image */
+//uint8_t testprog[TPLEN]; /* area for test program image */
 
 /* test buffers */
 uint8_t testtxbuf[PKTLEN]; /* outbound */
@@ -379,6 +382,7 @@ void load_resident(uint8_t* buff, int len)
     int i;
     unsigned long crc;
 
+    printf("Downloading resident program: length: %d", len);
     /* send the MTS go bootstrap command
        Note the target may already be in bootstrap, in which case this
        command is a no-op. */
@@ -400,7 +404,7 @@ void load_resident(uint8_t* buff, int len)
     /* burn flash sectors */
     for (i = 0; i < len; i += FLSSIZ) {
 
-        memcpy(pkttxbuf+1, buff, FLSSIZ); /* copy packet to transmit buffer */
+        memcpy(pkttxbuf+1, buff+i, FLSSIZ); /* copy packet to transmit buffer */
         pkttxbuf[0] = spicmd_mts_ppd; /* place packet to slave command */
 
         /* wait for IRQ, which signifies slave ready */
@@ -421,7 +425,7 @@ void load_resident(uint8_t* buff, int len)
 
     /* find the total program image CRC */
     crc = crc32(buff, len);
-printf("Send pex\n");
+    printf("Sending execute resident program");
 
      /* send the MTS length command */
     cmdtxbuf[0] = spicmd_mts_pex; /* place MTS start program sequence command */
@@ -448,7 +452,7 @@ void gos_app_init(void)
 
 #ifdef TESTPROG
     /* pattern the test buffer */
-    for (i = 0; i < TPLEN; i++) testprog[i] = i;
+//    for (i = 0; i < TPLEN; i++) testprog[i] = i;
 #if 0
     for (i = 0; i < TPLEN; i = i+2) {
 
@@ -470,7 +474,7 @@ void gos_app_init(void)
     }
 #endif
 
-	load_resident(testprog, TPLEN); /* load test program */
+	load_resident(&mgm13_bluetooth_bin, MGM13_BLUETOOTH_BIN_LEN); /* load test program */
 #else
     /* fill the outbound buffer with test data. We use the CRC generator as a
        random sequence generator */
