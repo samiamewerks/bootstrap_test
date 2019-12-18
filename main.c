@@ -383,6 +383,9 @@ void load_resident(uint8_t* buff, int len)
     unsigned long crc;
 
     printf("Downloading resident program: length: %d", len);
+
+    gos_rtos_delay_milliseconds(1000);
+
     /* send the MTS go bootstrap command
        Note the target may already be in bootstrap, in which case this
        command is a no-op. */
@@ -392,7 +395,9 @@ void load_resident(uint8_t* buff, int len)
     /* send command */
     spixfr(cmdtxbuf, cmdrxbuf, 3, false);
 
-//gos_rtos_delay_milliseconds(1/*1000*/);
+    /* give far program time to enter bootstrap */
+    gos_rtos_delay_milliseconds(1000);
+
     /* send the MTS start reprogram sequence command */
     cmdtxbuf[0] = spicmd_mts_sps; /* place MTS start program sequence command */
     cmdtxbuf[1] = 0; /* place (dummy) length */
@@ -400,7 +405,6 @@ void load_resident(uint8_t* buff, int len)
     /* send command */
     spixfr(cmdtxbuf, cmdrxbuf, 3, false);
 
-//gos_rtos_delay_milliseconds(1/*1000*/);
     /* burn flash sectors */
     for (i = 0; i < len; i += FLSSIZ) {
 
@@ -474,7 +478,14 @@ void gos_app_init(void)
     }
 #endif
 
+i = 1;
+while (1) {
+
 	load_resident(&mgm13_bluetooth_bin, MGM13_BLUETOOTH_BIN_LEN); /* load test program */
+	printf("Iteration: %d", i++);
+
+}
+
 #else
     /* fill the outbound buffer with test data. We use the CRC generator as a
        random sequence generator */
