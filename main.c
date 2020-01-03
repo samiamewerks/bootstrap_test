@@ -4,11 +4,30 @@
 
 #include "gos.h"
 
+/*
+ * Test switches:
+ *
+ * TESTPROG 	Loads a test program from the mgm13_bluetooth_bin array to the
+ * 				bluetooth target processor and runs it.
+ *
+ * TESTDATA     Tests sending of random data packets to the bluetooth target
+ * 				processor. If the target is configured to echo all packets, this
+ * 				also an upstream test.
+ *
+ * Note that without either of the above flags set, the program will simply sign
+ * and soft halt.
+ *
+ */
+//#define TESTPROG        /* load test program */
+#define TESTDATA		/* transmit test data */
+//#define FILLINC			/* fill outgoing packets with incrementing data */
+#define FILLRND			/* fill outgoing packets with random data */
+
 #define CMDLEN 5        /* length of standard command */
 #define PKTLEN (2*1024) /* length of max packet + overhead */
 
 #define TPLEN (10*1024) /* test program length */
-#define TESTPROG        /* load test program */
+
 
 #define FLSSIZ 1024     /* basic flash packet size */
 
@@ -30,8 +49,8 @@ typedef enum {
 
 } spicmd;
 
-extern unsigned char* mgm13_bluetooth_bin;
-#define MGM13_BLUETOOTH_BIN_LEN 149504
+extern unsigned char mgm13_bluetooth_bin[];
+extern unsigned int mgm13_bluetooth_bin_flashlen;
 
 uint8_t cmdtxbuf[CMDLEN]; /* SPI transmit command buffer */
 uint8_t cmdrxbuf[CMDLEN]; /* SPI receive command buffer */
@@ -446,67 +465,69 @@ void gos_app_init(void)
 
 {
 
-    int i, j;
-
-	//gos_event_enable_irq_events(8);
     GOS_LOG("Start application: init spi");
 
     /* initialize SPI channel */
     spiini();
 
 #ifdef TESTPROG
-    /* pattern the test buffer */
-//    for (i = 0; i < TPLEN; i++) testprog[i] = i;
-#if 0
-    for (i = 0; i < TPLEN; i = i+2) {
 
-        /* randomize */
-        randnum = crc16((const unsigned char*) &randnum, sizeof(unsigned short));
-        testprog[i] = randnum >> 8;
-        testprog[i+1] = randnum & 0xff;
+	{
 
-    }
-    /* number the flash sectors */
-    j = 0;
-    for (i = 0; i < TPLEN; i += FLSSIZ) {
+		int i;
 
-        testprog[i] = j >> 24 & 0xff;
-        testprog[i+1] = j >> 16 & 0xff;
-        testprog[i+2] = j >> 8 & 0xff;
-        testprog[i+3] = j & 0xff;
+        i = 1;
+	    while (1) {
 
-    }
+		    load_resident(mgm13_bluetooth_bin, mgm13_bluetooth_bin_flashlen); /* load test program */
+		    printf("Iteration: %d", i++);
+
+	    }
+
+	}
+
 #endif
 
-i = 1;
-while (1) {
+#ifdef TESTDATA
 
-	load_resident(&mgm13_bluetooth_bin, MGM13_BLUETOOTH_BIN_LEN); /* load test program */
-	printf("Iteration: %d", i++);
+    {
 
-}
+        int i;
+        int len;
 
-#else
-    /* fill the outbound buffer with test data. We use the CRC generator as a
-       random sequence generator */
-    for (i = 0; i < 2*1024; i = i+2) {
+#ifdef FILLINC
+        /* pattern the test buffer with incrementing data */
+        for (i = 0; i < TPLEN; i++) testprog[i] = i;
+#endif
 
-        /* randomize */
-        randnum = crc16((const unsigned char*) &randnum, sizeof(unsigned short));
-        testtxbuf[i] = randnum >> 8;
-        testtxbuf[i+1] = randnum & 0xff;
+#ifdef FILLRND
+        /* fill the outbound buffer with test data. We use the CRC generator as a
+           random sequence generator */
+        for (i = 0; i < 2*1024; i = i+2) {
 
-    }
+            /* randomize */
+            randnum = crc16((const unsigned char*) &randnum, sizeof(unsigned short));
+            testtxbuf[i] = randnum >> 8;
+            testtxbuf[i+1] = randnum & 0xff;
 
-    i = 0;
-    while (1) {
+        }
+#endif
 
-        bluetooth_packet_transmit(testtxbuf, i++/*2*1024*/); /* send packet */
-        if (i == PKTLEN-3) i = 0;
-        if (slaveirq) { /* slave flags packet ready, go receive */
+        i = 0;
+        while (1) {
 
-            slaveirq = false; /* clear irq */
-            bluetooth_packet_receive(testrxbuf, &len); /* receive packet */
+printf("Transmit packet");
+            bluetooth_packet_transmit(testtxbuf, i++/*2*1024*/); /* send packet */
+            if (i == PKTLEN-3) i = 0;
+            /* note that if the bluetooth processor is set to echo all packets,
+               will come back here */
+            if (slaveirq) { /* slave flags packet ready, go receive */
+
+printf("Receive packet");
+                slaveirq = false; /* clear irq */
+                bluetooth_packet_receive(testrxbuf, &len); /* receive packet */
+
+            }
 
         }
 
