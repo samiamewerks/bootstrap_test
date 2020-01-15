@@ -22,6 +22,7 @@
 #define TESTDATA		/* transmit test data */
 //#define FILLINC			/* fill outgoing packets with incrementing data */
 #define FILLRND			/* fill outgoing packets with random data */
+#define SINGLE 0        /* perform test a single time=1/continuously=0 */
 
 #define CMDLEN 5        /* length of standard command */
 #define PKTLEN (2*1024) /* length of max packet + overhead */
@@ -477,12 +478,12 @@ void gos_app_init(void)
 		int i;
 
         i = 1;
-	    while (1) {
+	    do {
 
 		    load_resident(mgm13_bluetooth_bin, mgm13_bluetooth_bin_flashlen); /* load test program */
 		    printf("Iteration: %d", i++);
 
-	    }
+	    } while (!SINGLE);
 
 	}
 
@@ -514,7 +515,7 @@ void gos_app_init(void)
 #endif
 
         i = 0;
-        while (1) {
+        do {
 
 printf("Transmit packet");
             bluetooth_packet_transmit(testtxbuf, i++/*2*1024*/); /* send packet */
@@ -529,7 +530,7 @@ printf("Receive packet");
 
             }
 
-        }
+        } while (!SINGLE);
 
     }
 #endif
